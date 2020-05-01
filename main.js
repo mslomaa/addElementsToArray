@@ -1,22 +1,42 @@
-const names = [];
+let capabilities = [];
 
-const div = document.querySelector('div');
 
-const btn = document.querySelector('button');
+const add = document.querySelector('.add');
+const reset = document.querySelector('.clean');
+const showAdvice = document.querySelector('.showAdvice');
+const showOptions = document.querySelector('.showOptions');
+const input = document.querySelector('input')
+const textH1 = document.querySelector('h1');
 
-btn.addEventListener('click', (e) => {
+add.addEventListener('click', (e) =>{
     e.preventDefault();
-    const input = document.querySelector('input');
-    const newName = input.value;
+    let newAdvice = input.value;
     if(input.value.length){
-        for(name of names){
-            if(name === newName){
-                alert('ta wartosc juz wystepuje');
+        for(capability of capabilities){
+            if(capability === newAdvice){
+                alert('wpisz inna wartosc');
                 return
             }
         }
-        names.push(newName);
-        div.textContent += newName + ', ';
-        input.value = '';
     }
+    
+    capabilities.push(newAdvice);
+    input.value = '';
+    console.log(capabilities);    
+})
+
+reset.addEventListener('click', (e) => {
+    e.preventDefault();
+    capabilities = [];
+    console.log(capabilities);
+    
+})
+
+showAdvice.addEventListener('click', () => {
+    let index = Math.floor(Math.random() * capabilities.length) 
+    textH1.textContent = `wylosowana rada to: ${capabilities[index]}`
+})
+
+showOptions.addEventListener('click', () => {
+    alert(`zawartosc dostepnych mozliwosci to ${capabilities}`);
 })
