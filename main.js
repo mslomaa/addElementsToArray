@@ -19,17 +19,13 @@ add.addEventListener('click', (e) =>{
             }
         }
     }
-    
     capabilities.push(newAdvice);
-    input.value = '';
-    console.log(capabilities);    
+    input.value = '';   
 })
 
 reset.addEventListener('click', (e) => {
     e.preventDefault();
     capabilities = [];
-    console.log(capabilities);
-    
 })
 
 showAdvice.addEventListener('click', () => {
